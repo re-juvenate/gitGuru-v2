@@ -45,7 +45,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen w-screen mx-auto px-4 sm:px-6 lg:px-8 py-6 gap-6">
+    <div className="flex flex-col min-h-screen px-4 gap-6">
       <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md border">
         <nav className="w-full flex flex-row text-xl border">
           <button
