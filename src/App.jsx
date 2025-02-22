@@ -5,7 +5,8 @@ function App() {
   const [data, setData] = useState({
     summary: '',
     possible_fixes: '',
-    problems: []
+    problems: {},
+    code_extracts: []
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,16 +30,22 @@ function App() {
   const mockData = {
     summary: "Some summary goes here.",
     possible_fixes: "This possible fixes goes into depth about the underlying causes and context of the situation. It provides background information and detailed analysis of various factors involved.",
-    problems: [
-      "Implement a new monitoring system",
-      "Update existing protocols",
-      "Provide additional training to team members",
-      "Establish regular review cycles"
+    problems: {
+      "Implement a new monitoring system": "",
+      "Update existing protocols": "",
+      "Provide additional training to team members": "",
+      "Establish regular review cycles": ""
+    },
+    code_extracts: [
+      "",
+      "",
+      "",
+      "",
     ]
   };
 
   return (
-    <div className="flex flex-col min-h-screen  w-screen mx-auto px-4 sm:px-6 lg:px-8 py-6 gap-6">
+    <div className="flex flex-col min-h-screen w-screen mx-auto px-4 sm:px-6 lg:px-8 py-6 gap-6">
       <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md border">
         <nav className="w-full flex flex-row text-xl border">
           <button
@@ -76,10 +83,10 @@ function App() {
         </div>
       </div>
 
-      <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md">
+      <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md p-6 border">
         <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Problems</h2>
         <div className="space-y-4 h-[calc(100%-3rem)] overflow-y-auto">
-          {mockData.problems.map((solution, index) => (
+          {Object.keys(mockData.problems).map((problem, index) => (
             <div
               key={index}
               className="p-4 border rounded-lg hover:bg-green-600 transition-colors w-full"
@@ -88,7 +95,7 @@ function App() {
                 <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-green-100 text-green-600 rounded-full font-semibold">
                   {index + 1}
                 </span>
-                <p className="text-base sm:text-lg text-white flex-1">{solution}</p>
+                <p className="text-base sm:text-lg text-white flex-1">{problem}</p>
               </div>
             </div>
           ))}
