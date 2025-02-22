@@ -12,7 +12,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["index.js","vite.svg"],
+      "resources": ["index.js"],
       "matches": ["<all_urls>"]
     }
   ]
