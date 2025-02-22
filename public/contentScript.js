@@ -1,7 +1,7 @@
 function mountGitGuruRoot() {
     let issueSidebar = document.querySelector('div[data-testid="issue-viewer-metadata-container"]');
     let prSidebar = document.querySelector('.Layout-sidebar');
-    let repoSidebar = document.querySelector('.repository-content .Layout-sidebar');
+    let repoSidebar = document.querySelector('.BorderGrid');
 
     let sidebar;
     if (window.location.pathname.includes('/pull/')) {
