@@ -82,6 +82,16 @@ function App() {
           </div>
         )}
       </div>
+
+      <div
+      className="w-auto max-w-full border border-white rounded-lg p-2 px-3 mx-2 text-white bg-transparent outline-none break-words"
+      contentEditable
+      suppressContentEditableWarning
+    >
+      Enter your message here...
+    </div>
+
+
     </div>
   </div>
   );
