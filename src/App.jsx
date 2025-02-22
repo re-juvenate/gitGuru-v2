@@ -88,12 +88,27 @@ function App() {
           )}
         </div>
         <div className="p-4 border-t border-white bg-black">
+      {/*Chat Area*/}
       <div
-      className="w-auto max-w-full border border-white rounded-lg p-2 px-3 mx-2 text-white bg-transparent outline-none break-words"
-      contentEditable
-      suppressContentEditableWarning
-    >
-      Enter your message here...
+        className="w-full border border-white rounded-lg p-2 px-3 text-white bg-transparent outline-none break-words"
+        contentEditable
+        suppressContentEditableWarning
+        onFocus={(e) => {
+          if (text === "") {
+            e.target.innerText = "";
+          }
+        }}
+        onBlur={(e) => {
+          if (e.target.innerText.trim() === "") {
+            e.target.innerText = "Enter your message here...";
+            setText("");
+          } else {
+            setText(e.target.innerText);
+          }
+        }}
+      >
+        Enter your message here...
+      </div>
     </div>
   </div>
 
