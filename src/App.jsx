@@ -10,6 +10,7 @@ function App() {
     code_extracts: []
   });
   const [isLoading, setIsLoading] = useState(true);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,42 +48,46 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-3/4 gap-6">
-    <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md border">
+    <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md border flex flex-col">
+      
+      {/*NavBar*/}
       <nav className="w-full flex flex-row border">
         <button
           className={`w-1/2 py-4 font-semibold transition-colors hover:bg-green-600 hover:text-white${
             activeTab === 'summary'
-              ? 'text-green-600 border-b border-green-600'
-              : 'text-white'
+            ? 'text-green-600 border-b border-green-600'
+            : 'text-white'
           }`}
           onClick={() => setActiveTab('summary')}
-        >
+          >
           Summary
         </button>
         <button
           className={`w-1/2 py-4 font-semibold transition-colors hover:bg-green-600 hover:text-white${
             activeTab === 'possible_fixes'
-              ? 'text-green-600 border-b-2 border-green-600'
-              : 'text-white'
+            ? 'text-green-600 border-b-2 border-green-600'
+            : 'text-white'
           }`}
           onClick={() => setActiveTab('possible_fixes')}
-        >
+          >
           Possible fixes
         </button>
       </nav>
 
-      <div className="p-4 sm:p-6 text-sm sm:text-sm text-white h-[calc(100%-3.5rem)] overflow-y-auto">
-        {isLoading ? (
-          <div className="flex justify-center items-center h-40">
-            <div className="animate-pulse text-white">Loading...</div>
-          </div>
-        ) : (
-          <div className="prose prose-lg prose-invert max-w-none">
-            {activeTab === 'summary' ? mockData.summary : mockData.possible_fixes}
-          </div>
-        )}
-      </div>
-
+      {/*Backend Area*/}
+      <div className="flex flex-col justify-between h-full">
+        <div className="p-4 sm:p-6 text-sm sm:text-sm text-white h-[calc(100%-3.5rem)] overflow-y-auto">
+          {isLoading ? (
+            <div className="flex justify-center items-center h-40">
+              <div className="animate-pulse text-white">Loading...</div>
+            </div>
+          ) : (
+            <div className="prose prose-lg prose-invert max-w-none">
+              {activeTab === 'summary' ? mockData.summary : mockData.possible_fixes}
+            </div>
+          )}
+        </div>
+        <div className="p-4 border-t border-white bg-black">
       <div
       className="w-auto max-w-full border border-white rounded-lg p-2 px-3 mx-2 text-white bg-transparent outline-none break-words"
       contentEditable
@@ -90,7 +95,7 @@ function App() {
     >
       Enter your message here...
     </div>
-
+  </div>
 
     </div>
   </div>
