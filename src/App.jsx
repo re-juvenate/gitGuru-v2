@@ -83,25 +83,6 @@ function App() {
         )}
       </div>
     </div>
-
-    <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md p-6 border">
-      <h2 className="text-2l sm:text-l font-bold text-white mb-4">Problems</h2>
-      <div className="space-y-4 h-[calc(100%-3rem)] overflow-y-auto">
-        {Object.keys(mockData.problems).map((problem, index) => (
-          <div
-            key={index}
-            className="p-4 border rounded-lg hover:bg-green-600 transition-colors w-full"
-          >
-            <div className="flex items-center gap-4">
-              <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-green-100 text-green-600 rounded-full font-semibold">
-                {index + 1}
-              </span>
-              <p className="text-base sm:text-lg text-white flex-1">{problem}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
   </div>
   );
 }
