@@ -3,7 +3,10 @@
   "name": "Git Guru",
   "version": "1.0",
   "description": "Help users get a better understanding of GitHub.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": [
@@ -11,13 +14,19 @@
         "https://github.com/*/pull/*",
         "https://github.com/*/*"
       ],
-      "js": ["contentScript.js"]
+      "js": [
+        "contentScript.js"
+      ]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["index.js"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "index.js"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ]
     }
   ]
 }

@@ -13,6 +13,8 @@ function mountGitGuruRoot() {
     }
 
     if (sidebar) {
+        console.log("GitGuru: Sidebar found!", sidebar);
+
         let div = document.createElement("div");
         div.id = "git-guru-root";
         sidebar.insertBefore(div, sidebar.firstChild);
@@ -21,6 +23,8 @@ function mountGitGuruRoot() {
         script.src = chrome.runtime.getURL("index.js");
         script.type = "module";
         document.body.appendChild(script);
+    } else {
+        console.log("GitGuru: No valid sidebar found.");
     }
 }
 

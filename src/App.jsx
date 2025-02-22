@@ -11,10 +11,10 @@ const COMPONENTS = {
 
 export default function App() {
   const [componentToRender, setComponentToRender] = useState(null);
-
+  
   useEffect(() => {
     const path = window.location.pathname;
-
+    console.log("GitGuru: Detected Path -", path);
     if (path.includes("/issues/")) {
       setComponentToRender("IssueViewer");
     } else if (path.includes("/pull/")) {
