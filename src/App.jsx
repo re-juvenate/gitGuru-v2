@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   const mockData = {
-    summary: "Some summary goes here.",
+    summary: "Some summary goes hereee.",
     possible_fixes: "This possible fixes goes into depth about the underlying causes and context of the situation. It provides background information and detailed analysis of various factors involved.",
     problems: {
       "Implement a new monitoring system": "",
@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen px-4 gap-6">
+    <div className="flex flex-col min-h-3/4 gap-6">
     <div className="flex-1 min-h-[400px] w-full rounded-lg shadow-md border">
       <nav className="w-full flex flex-row border">
         <button
@@ -71,7 +71,7 @@ function App() {
         </button>
       </nav>
 
-      <div className="p-4 sm:p-6 text-lg sm:text-lg text-white h-[calc(100%-3.5rem)] overflow-y-auto">
+      <div className="p-4 sm:p-6 text-sm sm:text-sm text-white h-[calc(100%-3.5rem)] overflow-y-auto">
         {isLoading ? (
           <div className="flex justify-center items-center h-40">
             <div className="animate-pulse text-white">Loading...</div>
