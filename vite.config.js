@@ -5,6 +5,15 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),
-    tailwindcss()
-  ],
+  tailwindcss()
+  ], build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: './src/main.jsx',
+      output: {
+        entryFileNames: 'index.js',
+        format: 'iife'
+      }
+    }
+  },
 })
