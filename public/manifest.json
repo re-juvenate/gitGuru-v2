@@ -8,7 +8,8 @@
     {
       "matches": [
         "https://github.com/*/issues/*",
-        "https://github.com/*/pull/*"
+        "https://github.com/*/pull/*",
+        "https://github.com/*/*"
       ],
       "js": ["contentScript.js"]
     }

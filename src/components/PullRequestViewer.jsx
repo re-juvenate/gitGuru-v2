@@ -1,3 +1,7 @@
+import DynamicViewer from "./DynamicViewer";
+
 export default function PullRequestViewer() {
-    return <div className="p-4">PR Viewer Component</div>;
+    return (
+        <DynamicViewer apiEndpoint="" tabs={{ conflicts: "Conflicts", issues: "Issues" }} />
+    )
 }

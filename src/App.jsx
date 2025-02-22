@@ -1,22 +1,26 @@
-// App.jsx
-import { useEffect, useState } from 'react';
-import IssueViewer from './components/IssueViewer';
-import PullRequestViewer from './components/PullRequestViewer';
+import { useEffect, useState } from "react";
+import IssueViewer from "./components/IssueViewer";
+import PullRequestViewer from "./components/PullRequestViewer";
+import RepoViewer from "./components/RepoViewer";
 
 const COMPONENTS = {
   IssueViewer,
-  PullRequestViewer
+  PullRequestViewer,
+  RepoViewer,
 };
 
 export default function App() {
   const [componentToRender, setComponentToRender] = useState(null);
 
   useEffect(() => {
-    // Determine which component to render based on URL
-    if (window.location.href.includes('/issues/')) {
-      setComponentToRender('IssueViewer');
-    } else if (window.location.href.includes('/pull/')) {
-      setComponentToRender('PullRequestViewer');
+    const path = window.location.pathname;
+
+    if (path.includes("/issues/")) {
+      setComponentToRender("IssueViewer");
+    } else if (path.includes("/pull/")) {
+      setComponentToRender("PullRequestViewer");
+    } else {
+      setComponentToRender("RepoViewer");
     }
   }, []);
 
@@ -25,4 +29,3 @@ export default function App() {
   const Component = COMPONENTS[componentToRender];
   return <Component />;
 }
-
