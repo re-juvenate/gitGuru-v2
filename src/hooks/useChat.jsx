@@ -6,6 +6,18 @@ export const useChat = (apiEndpoint, context, activeTab) => {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState({});
 
+    const highlightWords = ["/solve", "/summary", "/fixes", "/security", "extract", "/checkproblem"];
+
+    const processMessage = (message) => {
+        return message.split(/\s+/).map((word, index) =>
+            highlightWords.includes(word) ? (
+                <span key={index} className="bg-green-600 px-1 rounded text-white">{word}</span>
+            ) : (
+                <span key={index}> {word} </span>
+            )
+        );
+    };
+
     const chatHistoryKey = `chat_history_${context.repoUrl}_${context.type === "issue" ? context.issueUrl : context.type === "pr" ? context.prUrl : ""
         }`;
 
@@ -31,7 +43,7 @@ export const useChat = (apiEndpoint, context, activeTab) => {
                 ...prev,
                 [tabName]: [{
                     role: 'bot',
-                    message: result,
+                    message: processMessage(result),
                     timestamp: new Date().toISOString()
                 }]
             }));
@@ -49,7 +61,7 @@ export const useChat = (apiEndpoint, context, activeTab) => {
 
             const userMessage = {
                 role: 'user',
-                message: newMessage,
+                message: processMessage(newMessage),
                 timestamp: new Date().toISOString()
             };
 
@@ -66,7 +78,7 @@ export const useChat = (apiEndpoint, context, activeTab) => {
 
                 const botMessage = {
                     role: 'bot',
-                    message: dummyResponse,
+                    message: processMessage(dummyResponse),
                     timestamp: new Date().toISOString()
                 };
 
