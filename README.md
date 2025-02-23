@@ -1,6 +1,6 @@
 # GitGuru V2 Frontend
 
-GitGuru V2 Backend is a FastAPI-based backend service designed to provide various functionalities such as repository analysis, issue summarization, and chat interactions. The service integrates with GitHub and other tools to offer a comprehensive solution for managing and analyzing repositories.
+One stop solution to your github issues and PRs
 
 ## Features
 
